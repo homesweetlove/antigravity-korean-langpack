@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getAppDir } = require('./paths');
+const { getAppDir } = require('../lib/paths');
 
 const appDir = getAppDir();
 const pkgPath = path.join(appDir, 'extensions', 'antigravity', 'package.json');

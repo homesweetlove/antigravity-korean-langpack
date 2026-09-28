@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 > nul
 echo [Antigravity IDE 한글 언어팩 원본 복구 중...]
-node "%~dp0restore.js"
+node "%~dp0src\restore.js"
 echo.
 echo ========================================================
 echo [완료] 원본 영어 버전으로 복구되었습니다.

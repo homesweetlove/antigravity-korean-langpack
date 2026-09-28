@@ -8,19 +8,7 @@ echo  Antigravity IDE Korean Language Pack Patcher
 echo ========================================================
 echo.
 
-node apply_korean_core.js
-if %errorlevel% neq 0 goto error
-
-node apply_korean_workbench.js
-if %errorlevel% neq 0 goto error
-
-node apply_korean_jetski.js
-if %errorlevel% neq 0 goto error
-
-node apply_korean_extension.js
-if %errorlevel% neq 0 goto error
-
-node fix_checksums.js
+node src\apply.js
 if %errorlevel% neq 0 goto error
 
 echo.

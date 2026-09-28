@@ -58,7 +58,7 @@
 1. 실행 중인 **Antigravity IDE를 완전히 종료**합니다.
 2. 이 저장소를 다운로드하거나 클론합니다:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/antigravity-korean-langpack.git
+   git clone https://github.com/homesweetlove/antigravity-korean-langpack.git
    cd antigravity-korean-langpack
    ```
 3. **`apply_all.bat`** 파일을 더블 클릭하여 실행합니다.
@@ -72,12 +72,12 @@
 # 전체 패치 일괄 적용
 npm run patch
 
-# 또는 각 스크립트를 개별 실행:
-node apply_korean_core.js
-node apply_korean_workbench.js
-node apply_korean_jetski.js
-node apply_korean_extension.js
-node fix_checksums.js
+# 또는 각 단계를 순서대로 개별 실행:
+node src/patches/core.js
+node src/patches/workbench.js
+node src/patches/jetski.js
+node src/patches/extension.js
+node src/fix-checksums.js
 ```
 
 ---
@@ -87,8 +87,30 @@ node fix_checksums.js
 원래의 순정 영문 버전으로 되돌리려면:
 
 1. Antigravity IDE를 종료합니다.
-2. **`restore.bat`** 파일을 더블 클릭하여 실행합니다. (또는 `npm run restore` / `node restore.js` 실행)
+2. **`restore.bat`** 파일을 더블 클릭하여 실행합니다. (또는 `npm run restore` / `node src/restore.js` 실행)
 3. 생성되어 있던 `.bak` 원본 백업 파일로 자동 복구됩니다.
+
+---
+
+## 📁 프로젝트 구조
+
+```
+antigravity-korean-langpack/
+├── apply_all.bat          # 원클릭 패치 (Windows)
+├── restore.bat            # 원클릭 복구 (Windows)
+├── package.json           # npm 스크립트: patch / restore / fix-checksums
+└── src/
+    ├── apply.js           # 모든 패치 단계를 순서대로 실행
+    ├── restore.js         # .bak 백업으로 원본 복구
+    ├── fix-checksums.js   # product.json 체크섬 재계산
+    ├── lib/
+    │   └── paths.js       # IDE 설치 경로 및 한국어 언어팩 탐색
+    └── patches/
+        ├── core.js        # out/nls.messages.json
+        ├── workbench.js   # out/vs/workbench/workbench.desktop.main.js
+        ├── jetski.js      # out/jetskiAgent/main.js
+        └── extension.js   # extensions/antigravity/package.json
+```
 
 ---
 
@@ -109,7 +131,7 @@ node fix_checksums.js
 <details>
 <summary><strong>Q: "설치 파일이 손상된 것 같습니다 [지원되지 않음]" 알림이 떠요.</strong></summary>
 
-> `node fix_checksums.js`를 실행하거나 `apply_all.bat`를 다시 실행하세요. 수정된 파일의 SHA-256 해시를 `product.json`에 동기화하여 경고를 제거합니다.
+> `node src/fix-checksums.js`를 실행하거나 `apply_all.bat`를 다시 실행하세요. 수정된 파일의 SHA-256 해시를 `product.json`에 동기화하여 경고를 제거합니다.
 </details>
 
 <details>
@@ -129,7 +151,7 @@ node fix_checksums.js
 ## 🤝 기여 (Contributing)
 
 번역 제안, 버그 제보, 추가 UI 번역 요청은 언제든 환영합니다!  
-[Issues](https://github.com/YOUR_USERNAME/antigravity-korean-langpack/issues)를 등록하거나 Pull Request를 자유롭게 남겨주세요.
+[Issues](https://github.com/homesweetlove/antigravity-korean-langpack/issues)를 등록하거나 Pull Request를 자유롭게 남겨주세요.
 
 ---
 

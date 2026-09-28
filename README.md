@@ -57,7 +57,7 @@ Before running the patcher, ensure you have:
 1. **Close** Antigravity IDE completely.
 2. Clone or download this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/antigravity-korean-langpack.git
+   git clone https://github.com/homesweetlove/antigravity-korean-langpack.git
    cd antigravity-korean-langpack
    ```
 3. Double-click **`apply_all.bat`** (or run it in Command Prompt / PowerShell).
@@ -71,12 +71,12 @@ Before running the patcher, ensure you have:
 # Run the patcher
 npm run patch
 
-# Or run the scripts manually:
-node apply_korean_core.js
-node apply_korean_workbench.js
-node apply_korean_jetski.js
-node apply_korean_extension.js
-node fix_checksums.js
+# Or run each step manually (in this order):
+node src/patches/core.js
+node src/patches/workbench.js
+node src/patches/jetski.js
+node src/patches/extension.js
+node src/fix-checksums.js
 ```
 
 ---
@@ -86,8 +86,30 @@ node fix_checksums.js
 If you ever wish to revert all changes back to original English:
 
 1. Close Antigravity IDE.
-2. Double-click **`restore.bat`** (or run `npm run restore` / `node restore.js`).
+2. Double-click **`restore.bat`** (or run `npm run restore` / `node src/restore.js`).
 3. All original files will be restored from `.bak` backups.
+
+---
+
+## 📁 Project Structure
+
+```
+antigravity-korean-langpack/
+├── apply_all.bat          # One-click patch (Windows)
+├── restore.bat            # One-click restore (Windows)
+├── package.json           # npm scripts: patch / restore / fix-checksums
+└── src/
+    ├── apply.js           # Runs every patch step in order
+    ├── restore.js         # Restores original files from .bak backups
+    ├── fix-checksums.js   # Recalculates product.json checksums
+    ├── lib/
+    │   └── paths.js       # Locates the IDE install and Korean language pack
+    └── patches/
+        ├── core.js        # out/nls.messages.json
+        ├── workbench.js   # out/vs/workbench/workbench.desktop.main.js
+        ├── jetski.js      # out/jetskiAgent/main.js
+        └── extension.js   # extensions/antigravity/package.json
+```
 
 ---
 
@@ -108,7 +130,7 @@ If you ever wish to revert all changes back to original English:
 <details>
 <summary><strong>Q: "The installation appears to be corrupt [Unsupported]" banner appears.</strong></summary>
 
-> Run `node fix_checksums.js` (or re-run `apply_all.bat`). It recalculates and writes correct SHA-256 hashes into `product.json` to silence the warning.
+> Run `node src/fix-checksums.js` (or re-run `apply_all.bat`). It recalculates and writes correct SHA-256 hashes into `product.json` to silence the warning.
 </details>
 
 <details>
@@ -128,7 +150,7 @@ If you ever wish to revert all changes back to original English:
 ## 🤝 Contributing
 
 Contributions, bug reports, and translation suggestions are warmly welcome!
-Feel free to open an [Issue](https://github.com/YOUR_USERNAME/antigravity-korean-langpack/issues) or submit a Pull Request.
+Feel free to open an [Issue](https://github.com/homesweetlove/antigravity-korean-langpack/issues) or submit a Pull Request.
 
 ---
 

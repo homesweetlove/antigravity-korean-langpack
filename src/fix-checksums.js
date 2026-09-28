@@ -1,7 +1,7 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
-const { getAppDir } = require('./paths');
+const { getAppDir } = require('./lib/paths');
 
 const appDir = getAppDir();
 const prodPath = path.join(appDir, 'product.json');

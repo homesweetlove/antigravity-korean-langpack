@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getAppDir, getKoreanPackPath } = require('./paths');
+const { getAppDir, getKoreanPackPath } = require('../lib/paths');
 
 const appDir = getAppDir();
 if (!fs.existsSync(appDir)) {
