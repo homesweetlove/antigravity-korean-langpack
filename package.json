@@ -1,0 +1,21 @@
+{
+  "name": "antigravity-korean-langpack",
+  "version": "1.0.0",
+  "description": "Korean language pack and UI translation patcher for Antigravity IDE",
+  "main": "apply_all.bat",
+  "scripts": {
+    "patch": "node apply_korean_core.js && node apply_korean_workbench.js && node apply_korean_jetski.js && node apply_korean_extension.js && node fix_checksums.js",
+    "restore": "node restore.js",
+    "fix-checksums": "node fix_checksums.js"
+  },
+  "keywords": [
+    "antigravity",
+    "antigravity-ide",
+    "korean",
+    "i18n",
+    "language-pack",
+    "localization"
+  ],
+  "author": "",
+  "license": "MIT"
+}
