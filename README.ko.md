@@ -1,11 +1,9 @@
+[![English](https://img.shields.io/badge/README-English-24292f?style=for-the-badge)](./README.md) [![한국어](https://img.shields.io/badge/README-%ED%95%9C%EA%B5%AD%EC%96%B4-24292f?style=for-the-badge)](./README.ko.md)
+
 <p align="center">
   <h1 align="center">Antigravity IDE 한글 언어팩 패처</h1>
   <p align="center">
     <strong>Google Antigravity IDE (VS Code 기반 코어 및 AI 에이전트 UI) 완전 한글화 도구</strong>
-  </p>
-  <p align="center">
-    <a href="README.md"><strong>English</strong></a> | 
-    <a href="README.ko.md"><strong>한국어</strong></a>
   </p>
 </p>
 
